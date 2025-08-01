@@ -1,22 +1,37 @@
-# flutter_app3_series_api
+# 📺 flutter_app3_series_api
 
-A Flutter project.
+Projeto Flutter que consome uma API de séries e exibe uma lista com detalhes de cada título.  
+Inclui funcionalidades como favoritar séries, alternar entre telas e organização de estados.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Tecnologias Utilizadas
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter
+- Dart
+- Consumo de API REST
+- Gerenciamento de estado com `setState` (ou `Provider`, se usado)
+- `http` package
+- Widgets personalizados
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧱 Estrutura do Projeto
 
+### `lib/tv_show_model.dart`
+Contém a classe `TvShowModel`, responsável por representar os dados de uma série com:
+- `id`
+- `name`
+- `image`
+- Outros campos recebidos da API
 
-## File: tv_show_model.dart
-A TvShowModel class was created with attributes representing a TV show (id, name, image, etc.) and a factory constructor to convert the API's JSON data into a Dart object.
+A classe possui um **factory constructor** para mapear o JSON da API para um objeto Dart.
 
-## 
+---
+
+## 📸 Capturas de Tela (opcional)
+
+> ⚠️🚧 prints/imagens aqui:
+
+```bash
+/lib/assets/screenshot_01.png
