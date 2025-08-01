@@ -29,7 +29,7 @@ A classe possui um **factory constructor** para mapear o JSON da API para um obj
 
 ---
 
-## 📸 Capturas de Tela (opcional)
+## 📸 Capturas de Tela (⚠️em 🚧construção )
 
 > ⚠️🚧 prints/imagens aqui:
 
