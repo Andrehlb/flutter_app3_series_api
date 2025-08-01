@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 ## File: tv_show_model.dart
 A TvShowModel class was created with attributes representing a TV show (id, name, image, etc.) and a factory constructor to convert the API's JSON data into a Dart object.
 
+Teste de commit
