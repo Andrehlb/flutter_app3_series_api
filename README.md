@@ -10,7 +10,7 @@ Inclui funcionalidades como favoritar séries, alternar entre telas e organizaç
 - Flutter
 - Dart
 - Consumo de API REST
-- Gerenciamento de estado com `setState` (ou `Provider`, se usado)
+- Gerenciamento de estado com `setState` (ou `Provider`, em andamento)
 - `http` package
 - Widgets personalizados
 
