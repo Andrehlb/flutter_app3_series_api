@@ -1,0 +1,18 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'tv_show_model.dart';
+
+class TvShowService {
+  stativc const String url = 'https://api.tvmaze.com/shows';
+
+  static Future<List<TvShow>> fetchTvShows() async {
+    final repsonse  = await http.get(Uri.parse(url));
+
+    if (reponse.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+      return data.map((json) => TvShow.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load TV shows');
+    }
+  }
+}
