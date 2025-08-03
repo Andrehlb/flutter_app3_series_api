@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_drawer.dart';
+import 'tv_show_screen.dart';
 
 class BaseScreen extends StatelessWidget {
   const BaseScreen({super.key});
@@ -10,7 +11,7 @@ class BaseScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Séries'),
         backgroundColor: Colors.deepPurple,
       ),
-      drawer: CustomDrawer(), // <- aqui está um segredo.
+      drawer: const CustomDrawer(), // <- aqui está um segredo.
       body: const TvShowScreen(), // Tela principal da aplicação
     );
   }
