@@ -59,4 +59,5 @@ Define o modelo `TvShowModel` com `id`, `name`, `image` e o `factory constructor
  ├── main.dart
  ├── tv_show_screen.dart
  ├── tv_show_service.dart
- └── tv_show_model.dart
+ ├── tv_show_model.dart
+ └── custom_draer.dart
