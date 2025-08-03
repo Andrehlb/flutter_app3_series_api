@@ -2,7 +2,7 @@ import 'package: flutter/material.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrwawer extends StatelessWidget {
-  const CustomDrwawer({super,key});
+  const CustomDrwawer({super.key});
 
   @override
   Widget build(BuildContext context) {
