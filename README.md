@@ -1,7 +1,7 @@
 # 📺 flutter_app3_series_api
 
-Projeto Flutter que consome uma API de séries e exibe uma lista com detalhes de cada título.  
-Inclui funcionalidades como favoritar séries, alternar entre telas e organização de estados.
+Projeto Flutter que consome a API TV Maze e exibe uma lista de séries.  
+Em breve, funcionalidades como **buscar**, **favoritar** e **organizar por categorias** serão implementadas.
 
 ---
 
@@ -9,29 +9,50 @@ Inclui funcionalidades como favoritar séries, alternar entre telas e organizaç
 
 - Flutter
 - Dart
-- Consumo de API REST
-- Gerenciamento de estado com `setState` (ou `Provider`, em andamento)
+- API REST (TV Maze)
+- Gerenciamento de estado com `setState` (⚙️ migração para `Provider` em andamento)
 - `http` package
 - Widgets personalizados
+- SQLite (⚠️ em testes)
 
 ---
 
 ## 🧱 Estrutura do Projeto
 
-### `lib/tv_show_model.dart`
-Contém a classe `TvShowModel`, responsável por representar os dados de uma série com:
-- `id`
-- `name`
-- `image`
-- Outros campos recebidos da API
+### `main.dart`
+Arquivo principal que inicia o app e define a tela inicial como `TvShowScreen`.
 
-A classe possui um **factory constructor** para mapear o JSON da API para um objeto Dart.
+### `tv_show_screen.dart`
+Exibe uma lista básica de séries consumidas da API, usando `TvShowService`.
+
+### `tv_show_service.dart`
+Responsável por acessar a API do TV Maze e transformar os dados recebidos em objetos `TvShowModel`.
+
+### `tv_show_model.dart`
+Define o modelo `TvShowModel` com `id`, `name`, `image` e o `factory constructor` `fromJson()`.
 
 ---
 
-## 📸 Capturas de Tela (⚠️em 🚧construção )
+## 🧪 Em desenvolvimento (em breve)
 
-> ⚠️🚧 prints/imagens aqui:
+- Tela de favoritos com SQLite
+- Provider para gerenciamento de estado
+- Drawer lateral com navegação entre telas
+- Busca de séries por nome
+
+---
+
+## 📸 Capturas de Tela
+
+> ⚠️ Em construção – imagens serão adicionadas assim que as telas estiverem completas.
+
+---
+
+## 📂 Organização da pasta `/lib/`
 
 ```bash
-/lib/assets/screenshot_01.png
+/lib
+ ├── main.dart
+ ├── tv_show_screen.dart
+ ├── tv_show_service.dart
+ └── tv_show_model.dart
