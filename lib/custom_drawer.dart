@@ -1,8 +1,6 @@
-import 'package: flutter/material.dart';
 import 'package:flutter/material.dart';
-
-class CustomDrwawer extends StatelessWidget {
-  const CustomDrwawer({super.key});
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
