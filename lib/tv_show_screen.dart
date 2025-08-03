@@ -10,7 +10,7 @@ class TvShowScreen extends StatelessWidget {
         title: const Text('Séries'),
       ),
       drawer: const CustomDrawer(),
-      body: Center(child: Text('Séries')),
+      body: const Center(child: Text('Séries')),
     );
   }
 }
