@@ -3,6 +3,10 @@
 Projeto Flutter que consome a API TV Maze e exibe uma lista de séries.  
 Em breve, funcionalidades como **buscar**, **favoritar** e **organizar por categorias** serão implementadas.
 
+## 🆕 Novidades
+
+- Adicionada estrutura base com Scaffold, AppBar e Drawer na tela principal (`TvShowScreen`).  
+  Agora o app possui barra superior e menu lateral de navegação.
 ---
 
 ## 🚀 Tecnologias Utilizadas
