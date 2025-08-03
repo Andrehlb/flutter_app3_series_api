@@ -31,6 +31,10 @@ Responsável por acessar a API do TV Maze e transformar os dados recebidos em ob
 ### `tv_show_model.dart`
 Define o modelo `TvShowModel` com `id`, `name`, `image` e o `factory constructor` `fromJson()`.
 
+### `custom_drawer.dart`  
+  Cria o menu lateral de navegação com as opções "Séries" e "Favoritas".
+
+
 ---
 
 ## 🧪 Em desenvolvimento (em breve)
