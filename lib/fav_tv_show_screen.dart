@@ -7,3 +7,27 @@ class FavTvShowScreen extends StatefullWidget {
   @override
   _FavTvShowScreenState createState() => _FavTvShowScreenState();
 }
+
+class _FavTvShowScreenState extends State<FavTvShowScreeen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Séries Favoritas')
+      ),
+      body: center(
+        chil: column (
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.favorite, size: 96, color: Colors.deepPurple),
+            const SizedBox(height: 32),
+            const Text(
+              'Adicione suas séries favoritas!',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
