@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'tv_show_model.dart';
 import 'tv_show_screen.dart';
 
 void main() {
