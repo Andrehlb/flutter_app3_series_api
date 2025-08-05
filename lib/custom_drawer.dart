@@ -8,7 +8,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.deepPurple,
             ),
@@ -21,15 +21,15 @@ class CustomDrawer extends StatelessWidget {
             ), 
           ),
           ListTile(
-            leading: Icon(Icons.tv),
-            title: Text('Séries'),
+            leading: const Icon(Icons.tv),
+            title: const Text('Séries'),
             onTap: () {
               // ação ao clicar em Séries
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text('Favoritas'),
+            leading: const Icon(Icons.favorite),
+            title: const Text('Favoritas'),
             onTap: () {
               // ação ao clicar em Favoritas
             },
