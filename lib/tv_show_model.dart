@@ -69,6 +69,11 @@ void _setLoading(bool loading) {
   notifyListeners();
 }
 
+void _setError(String? error) {
+  _errorMessage = error;
+  notifyListeners();
+}
+
 // Puxar as séries favoritas que estão salvas no BD 🎬💖💾
 Future<void> load() async {
   try {
