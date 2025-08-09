@@ -145,3 +145,17 @@ Future<List<TvShow>> searchTvShows(String query) async {
     throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
   }
 }
+
+void addTvShow(TvShow tvShow, BuildContext context) {
+  _tvShows.add(tvShow);
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        'Série 🎬, ${tvShow.name}, adicionada com sucesso! ✨',
+        textAlign: TextAlign.center,
+        ),
+        duration: Duration(seconds: 2),
+      ),
+  ); // ScaffoldMessenger para mostrar mensagem de sucesso
+  notifyListeners();
+}
