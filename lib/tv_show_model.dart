@@ -57,3 +57,25 @@ List<TvShow> get tvShows => _tvShows;
 bool get isLoading => _isLoading;
 String? get errorMessage => _errorMessage;
 bool get hasFavorites => _tvShows.isNotEmpty;
+
+// BD
+Future<void> initialize() async {
+  await load();
+}
+
+void _setLoading(bool loading) {
+  _isLoading = loading;
+  notifyListeners();
+}
+
+// Puxar as séries favoritas que estão salvas no BD
+Future<void> load() async {
+  try {
+    _setLoading(true);
+    _setError(null);
+    _tvShows = await _tvShowService.getAll();
+  } catch (e) {
+    _setError('Deu ruim no carregamento das séries favoritas, tente depois por favor: ${e.toString()}');
+    return false;
+  }
+}
