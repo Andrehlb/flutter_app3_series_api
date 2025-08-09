@@ -31,6 +31,15 @@ class TvShowService {
         .toList();
   }
 
+  Future<void> insert(TvShow tvShow) async {
+    final db = await _databaseService.database;
+    await db.insert(
+      'tv_shows',
+      tvShow.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
     
     }
   }
