@@ -94,14 +94,14 @@ Future<void> addToFavorites(TvShow tvShow) async {
   notifyListeners();
 }
 
-// Remove as séries favoritas do BD 🎬💾
+// Remove do BD as séries desfavoritadas 🔙💾🎬💔
 Future<void> removeFromFavorites(TvShow tvshow) async {
   await _tvShowService.delete(tvShow.id);
   _tvShows.remove.Where((show) => show.id == tvShow.id);
   notifyListeners();
 }
 
-// Detector de hall da fama, vai checar se a série é coração
+// Detector de hall da fama, vai checar se a série é coração 🔍🏆🎬💖
 Future<bool> isFavortite(TvShow tvShow) async {
   try {
     return await _TvShowService.isFavorite(TvShow);
@@ -111,7 +111,7 @@ Future<bool> isFavortite(TvShow tvShow) async {
   }
 }
 
-// Faz os nomes das séries virarem trend, do A ao Z
+// Faz os nomes das séries virarem trend, do A ao Z 📈🔥🎬🅰️🧿
 void sortByName(bool ascending) {
   _tvShows.sort(
     (a, b) => ascending ? a.name.compareTo(b.name) : b.name.compareTo(a.name),
@@ -119,7 +119,7 @@ void sortByName(bool ascending) {
   notifyListeners();
 }
 
-// As séries coração são classificadas por notas
+// As séries coração são classificadas por notas 🎬💖📊
 void sortByRating(bool ascending) {
   _tvShows.sort(
     (a, b) => ascending ? a.name.compareTo(b.name): b.name.compareTo(a.name),
@@ -127,7 +127,7 @@ void sortByRating(bool ascending) {
   notifyListeners()
 }
 
-// Consumo do API para buscar séries
+// Consumo do API para buscar séries por ID 🔍🎬🆔
 Future<TvShow> getTvShowById(int id) async {
   try {
     return await _tvShowService.fetchTvShowById(id);
