@@ -12,12 +12,26 @@ class TvShowService {
 
   Future<List<TvShow>> getAll() async {
     final db = await _databaseService.database;
+    final List<Map<String, dynamic>> maps = await db.query('tv_shows');
+    return _convertToList(maps);
+  }
 
-    if (response.statusCode == 200) {
-      final List<dynamic> data = json.decode(response.body);
-      return data.map((json) => TvShowModel.fromJson(json)).toList();
-    } else {
-      throw Exception('Failed to load TV shows');
+  List<TvShow> _convertToList(List<Map<String, dynamic>> maps) {
+    return maps
+        .map(
+          (map) => TvShow(
+            id: map['id'] as int,
+            imageUrl: map['imageUrl'] as String? ?? '',
+            name: map['name'] as String? ?? 'Desconhecido',
+            webChannel: map['webChannel'] as String? ?? 'N/A',
+            rating: (map['rating'] as num?)?.toDouble() ?? 0.0,
+            summary: map['summary'] as String? ?? 'Sem resumo disponível.',
+          ),
+        )
+        .toList();
+  }
+
+    
     }
   }
 }
