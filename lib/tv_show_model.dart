@@ -124,7 +124,7 @@ void sortByRating(bool ascending) {
   _tvShows.sort(
     (a, b) => ascending ? a.name.compareTo(b.name): b.name.compareTo(a.name),
   );
-  notifyListeners()
+  notifyListeners();
 }
 
 // Consumo do API para buscar séries por ID 📡🔍🎬🆔
