@@ -7,7 +7,7 @@ import 'package:sqflite/sqflite.dart';
 
 class TvShowService {
 
-  // // API: puxando as séries direto do banco 📡🎬💾
+  // API: puxando as séries direto do banco 📡🎬💾
   late final DatabaseService _databaseService; = DatabaseService();
 
   Future<List<TvShow>> getAll() async {
@@ -16,6 +16,7 @@ class TvShowService {
     return _convertToList(maps);
   }
 
+  // Converte a lista de mapas para uma lista de objetos TvShow
   List<TvShow> _convertToList(List<Map<String, dynamic>> maps) {
     return maps
         .map(
@@ -30,7 +31,8 @@ class TvShowService {
         )
         .toList();
   }
-
+  
+  // Método para inserir uma série no banco de dados
   Future<void> insert(TvShow tvShow) async {
     final db = await _databaseService.database;
     await db.insert(
@@ -40,7 +42,19 @@ class TvShowService {
     );
   }
 
-    
+  // Método para atualizar uma série no banco de dados
+  Future<void> delete(int id) async {
+    final db = await _databaseService.database;
+    await db.delete('tv_shows', where: 'id = ?', whereArgs: [id]);
+  }
+
+  // Método para buscar uma série pelo ID
+  Future<bool> isFavorite(TvShow tvShow) async {
+    final tvShows = await getAll();
+    return tvShows.any((show) => show.id == tvShow.id);
+  }
+
+
     }
   }
 }
