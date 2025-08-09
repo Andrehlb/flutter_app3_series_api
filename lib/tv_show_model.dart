@@ -1,11 +1,12 @@
 import 'package:app3_series_api/tv_show_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app3_series_api/tv_show_service.dart';
+
 class TvShow {
   int id;
   String imageUrl;
   String name;
-  String webChannel; ratting;
+  String webChannel; 
+  double rating;
   String summary;
 
   TvShow({
