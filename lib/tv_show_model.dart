@@ -105,4 +105,4 @@ Future<bool> isFavortite(TvShow tvShow) async {
   }
 }
 
-// Faz os nomes das séries virar trend, do A ao Z
+// Faz os nomes das séries virarem trend, do A ao Z
