@@ -1,7 +1,11 @@
-class TvShowModel {
-  final int id;
-  final String name;
-  final String image;
+import 'package:app3_series_api/tv_show_service.dart';
+import 'package:flutter/material.dart';
+class TvShow {
+  int id;
+  String imageUrl;
+  String name;
+  String webChannel; ratting;
+  String summary;
 
   TvShowModel({
     required this.id,
