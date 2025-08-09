@@ -26,4 +26,14 @@ class TvShow {
       summary: json['summary'] ?? 'Resumo não disponível',
     );
   }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'imageUrl': imageUrl, //'image': {'medium': imageUrl},
+      'name': name,
+      'webChannel': webChannel, //'webChannel': {'name': webChannel},
+      'rating': rating, //'rating': {'average': ratting},
+      'summary': summary,
+    };
+  }
 }
