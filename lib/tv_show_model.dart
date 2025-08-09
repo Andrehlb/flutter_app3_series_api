@@ -87,3 +87,11 @@ Future<void> addToFavorites(TvShow tvShow) async {
   _tvShows.add(tvShow);
   notifyListeners();
 }
+
+// Remove as séries favoritas do BD
+Future<void> removeFromFavorites(TvShow tvshow) async {
+  await _tvShowService.delete(tvShow.id);
+  _tvShows.remove.Where((show) => show.id == tvShow.id);
+  notifyListeners();
+}
+
