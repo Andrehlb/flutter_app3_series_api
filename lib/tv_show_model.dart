@@ -114,7 +114,7 @@ void sortByName(bool ascending) {
 }
 
 // As séries coração são classificadas por notas
-void soortByRaing(bool ascending) {
+void sortByRating(bool ascending) {
   _tvShows.sort(
     (a, b) => ascending ? a.name.compareTo(b.name): b.name.compareTo(a.name),
   );
