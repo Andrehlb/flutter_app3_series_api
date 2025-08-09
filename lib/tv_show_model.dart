@@ -75,7 +75,7 @@ Future<void> load() async {
     _setError(null);
     _tvShows = await _tvShowService.getAll();
   } catch (e) {
-    _setError('Deu ruim no carregamento da série favorita: ${e.toString()}, tente depois, por favor');
+    _setError('Deu ruim 😬 no carregamento da série coração 💔: ${e.toString()}, tente depois, por favor');
   } finally {
     _setLoading(false);
   }
@@ -100,7 +100,7 @@ Future<bool> isFavortite(TvShow tvShow) async {
   try {
     return await _TvShowService.isFavorite(TvShow);
   } catch (e) {
-    _setError('Deu ruim na checagem de favs 😬: ${e.toString()}, tente depois, por favor}');
+    _setError('Deu ruim 😬 na checagem de favs 💔: ${e.toString()}, tente depois, por favor}');
     return false;
   }
 }
@@ -126,7 +126,7 @@ Future<TvShow> getTvShowById(int id) async {
   try {
     return await _tvShowService.fetchTvShowById(id);
   } catch (e) {
-    throw Exception('Deu ruim ao buscar série: ${e.toString()}, tente depois.');
+    throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
     rethrow;
   }
 }
