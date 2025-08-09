@@ -28,6 +28,7 @@ class TvShow {
       summary: json['summary'] ?? 'Resumo não disponível',
     );
   }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -41,7 +42,7 @@ class TvShow {
 }
 
 class TvShowModel extends ChangeNotifier {
-  late TvShowService _tvShowService;
+  late final TvShowService _tvShowService;
 
   TvShowModel() {
     _tvShowService = TvShowService();
