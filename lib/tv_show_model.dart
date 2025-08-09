@@ -95,7 +95,7 @@ Future<void> removeFromFavorites(TvShow tvshow) async {
   notifyListeners();
 }
 
-// Verifica se uma série é favorita
+// Virar fav? vai checar se a série é coração
 Future<bool> isFavortite(TvShow tvShow) async {
   try {
     return await _TvShowService.isFavorite(TvShow);
@@ -104,3 +104,5 @@ Future<bool> isFavortite(TvShow tvShow) async {
     return false;
   }
 }
+
+// Faz os nomes das séries virar trend, do A ao Z
