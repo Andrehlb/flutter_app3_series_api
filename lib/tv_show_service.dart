@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'tv_show_model.dart';
+import 'package:app3_series_api/tv_show_model.dart';
 
 class TvShowService {
   static const String url = 'https://api.tvmaze.com/shows';
