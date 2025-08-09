@@ -40,7 +40,50 @@ class _BaseScreenState extends State<BaseScreen> {
       
       drawer: CustomDrawer(), // <- aqui está um segredo.
       body: widget.child,
-       // Tela principal da aplicação
-    );
+      floatingActionButton: currentPath == '/'
+          ? SpeedDial(
+              elevation: 5,
+              icon: Icons.sort,
+              activeIcon: Icons.close,
+              backgroundColor: Theme.of(context).colorScheme.onPrimary,
+              foregroundColor: Theme.of(context).colorScheme.primary,
+              overlayColor: Theme.of(context).colorScheme.primary,
+              overlayOpacity: 0.5,
+              children: [
+                SpeedDialChild(
+                  child: Icon(
+                    Icons.sort_by_alpha,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  label: 'Ordernar por Nome',
+                  labelBackgroundColor: Theme.of(context).colorScheme.surface,
+                  backgroundColor: Theme.of(context).colorScheme.surface,
+                  onTap: () {
+                    viewModel.sortByName(_isAscending);
+                    setState(() {
+                      _isAscending = !_isAscending;
+                    });
+                  },
+                ),
+                SpeedDialChild(
+                  child: Icon(
+                    Icons.star_rate,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  label: 'Ordernar por Nota',
+                  labelBackgroundColor: Theme.of(context).colorScheme.surface,
+                  backgroundColor: Theme.of(context).colorScheme.surface,
+                  onTap: () {
+                    viewModel.sortByRating(_isAscending);
+                    setState(() {
+                      _isAscending = !_isAscending;
+                    });
+                  },
+                ),
+              ],
+            )
+          : null,
+      );
+    }
   }
 }
