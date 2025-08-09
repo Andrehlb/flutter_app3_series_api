@@ -106,3 +106,11 @@ Future<bool> isFavortite(TvShow tvShow) async {
 }
 
 // Faz os nomes das séries virarem trend, do A ao Z
+void sortByName() {
+  _tvShows.sort(
+    (a, b) => ascending ? a.name.compareTo(b.name) : b.name.compareTo(a.name),
+  );
+  notifyListeners();
+}
+
+// As séries coração são classificadas por notas
