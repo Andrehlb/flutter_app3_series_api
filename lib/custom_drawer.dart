@@ -6,4 +6,24 @@ import 'package:provider/provider.dart';
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
-  
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Eu Amo Séries 🎬',
+                    style: GoogleFonts.lobster(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
