@@ -7,17 +7,23 @@ class TvShow {
   String webChannel; ratting;
   String summary;
 
-  TvShowModel({
+  TvShow({
     required this.id,
+    required this.imageUrl,
     required this.name,
-    required this.image,
+    required this.webChannel,
+    required this.ratting,
+    required this.summary,
   });
 
-  factory TvShowModel.fromJson(Map<String, dynamic> json) {
-    return TvShowModel(
+  factory TvShow.fromJson(Map<String, dynamic> json) {
+    return TvShow(
       id: json['id'],
+      imageUrl: json['image']?['medium'] ?? '',
       name: json['name'],
-      image: json['image'] != null ? json['image']['medium'] : '',
+      webChannel: json['webChannel']?['name'] ?? 'N/A',
+      ratting: json['rating']?['average']?.toSDouble() ?? 0.0,
+      summary: json['summary'] ?? 'Resumo não disponível',
     );
   }
 }
