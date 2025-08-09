@@ -159,3 +159,27 @@ void addTvShow(TvShow tvShow, BuildContext context) {
   ); // ScaffoldMessenger para mostrar mensagem de sucesso
   notifyListeners();
 }
+
+// Remove série do modelo e notifica ouvintes 🔙🎬📢🎧
+void remove TvShow(TvShow tvShow, BuildContext context) {
+  final index = tvShows.indexwhere(
+    (show) => show.name.toLowerCase() == tvShow.name.toLowerCase(),
+  );
+  tvShows.removeAt(index);
+  ScaffoldMessenger.of(context).clearSnackBars();
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text('Série 🎬, ${tvShow.name}, removida com sucesso! ✨',
+      duration: Duration(seconds: 3), //textAlign: TextAlign.center,
+      action: SnackBarAction(
+        label: 'Desfazer',
+        onPressed: () {
+          tvShows.insert(index, tvShow);
+          notifyListeners();
+        }, // onPressed para desfazer a remoção
+      ), // Action para desfazer a remoção
+    ), // Snackbar para mostrar mensagem de sucesso
+  );
+  notifyListeners();
+}
+
