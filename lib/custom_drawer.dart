@@ -20,10 +20,26 @@ class CustomDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Eu Amo Séries 🎬',
+                    'Eu Amo 💛 Séries 🎬',
                     style: GoogleFonts.lobster(
                       color: Theme.of(context).colorScheme.onPrimary,
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(height: 16),
+                  ElevatedButton.icon(
+                    onPressed: context.read<MyThemeModel>().toogleTheme,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.onSurface,
+                      foregroundColor: Theme.of(context).colorScheme.surface,
+                    ),
+                    icon: !context.watch<MyThemeModel>().isDark
+                        ? Icon(Icons.nightlight_round_sharp, size: 24)
+                        : Icon(Icons.wb_sunny_outlined, size: 24),
+                    label: Text('Mudar Tema'),
+                  ),
+                ],
+              ),
+            ),
+          ),
