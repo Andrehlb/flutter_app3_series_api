@@ -1,41 +1,9 @@
+import 'package:app3_series_api/my_theme_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.deepPurple,
-            ),
-            child: Text(
-              'Eu Amo Séries',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ), 
-          ),
-          ListTile(
-            leading: const Icon(Icons.tv),
-            title: const Text('Séries'),
-            onTap: () {
-              // ação ao clicar em Séries
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('Favoritas'),
-            onTap: () {
-              // ação ao clicar em Favoritas
-            },
-          ),
-        ],
-      ),
-    );
-  } // Widget build
-} // class CustomDrwawer
+  
