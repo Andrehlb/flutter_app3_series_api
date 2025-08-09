@@ -97,7 +97,7 @@ class TvShowModel extends ChangeNotifier {
 // Remove do BD as séries desfavoritadas 🔙💾🎬💔
   Future<void> removeFromFavorites(TvShow tvshow) async {
     await _tvShowService.delete(tvShow.id);
-    _tvShows.remove.Where((show) => show.id == tvShow.id);
+    _tvShows.remove.where((show) => show.id == tvShow.id);
     notifyListeners();
   }
 
