@@ -95,3 +95,12 @@ Future<void> removeFromFavorites(TvShow tvshow) async {
   notifyListeners();
 }
 
+// Verifica se uma série é favorita
+Future<bool> isFavortite(TvShow tvShow) async {
+  try {
+    return await _TvShowService.isFavorite(TvShow);
+  } catch (e) {
+    _setError('Erro ao verificar se a série é favorita: ${e.toString()}
+    return false;
+  }
+}
