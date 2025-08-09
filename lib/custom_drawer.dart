@@ -43,3 +43,25 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
+           ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text('Favoritas'),
+            onTap: () {
+              Navigator.of(context).pop();
+              context.go('/');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.search),
+            title: Text('Buscar'),
+            onTap: () {
+              // switchScreen(1);
+              Navigator.of(context).pop();
+              context.go('/search');
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
