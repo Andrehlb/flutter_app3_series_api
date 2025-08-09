@@ -14,7 +14,7 @@ class TvShow {
     required this.imageUrl,
     required this.name,
     required this.webChannel,
-    required this.ratting,
+    required this.rating,
     required this.summary,
   });
 
