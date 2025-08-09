@@ -8,7 +8,7 @@ import 'package:sqflite/sqflite.dart';
 class TvShowService {
 
   // API: puxando as séries direto do banco 📡🎬💾
-  late final DatabaseService _databaseService; = DatabaseService();
+  late final DatabaseService _databaseService = DatabaseService();
 
   Future<List<TvShow>> getAll() async {
     final db = await _databaseService.database;
