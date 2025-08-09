@@ -127,7 +127,7 @@ void sortByRating(bool ascending) {
   notifyListeners()
 }
 
-// Consumo do API para buscar séries por ID 🔍🎬🆔
+// Consumo do API para buscar séries por ID 📡🔍🎬🆔
 Future<TvShow> getTvShowById(int id) async {
   try {
     return await _tvShowService.fetchTvShowById(id);
