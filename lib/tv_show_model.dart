@@ -24,7 +24,7 @@ class TvShow {
       imageUrl: json['image']?['medium'] ?? '',
       name: json['name'],
       webChannel: json['webChannel']?['name'] ?? 'N/A',
-      ratting: json['rating']?['average']?.toSDouble() ?? 0.0,
+      rating: json['rating']?['average']?.toSDouble() ?? 0.0,
       summary: json['summary'] ?? 'Resumo não disponível',
     );
   }
