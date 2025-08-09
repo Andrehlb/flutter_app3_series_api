@@ -11,7 +11,7 @@ class TvShowService {
   late final DatabaseService _databaseService; = DatabaseService();
 
   Future<List<TvShow>> getAll() async {
-    final response  = await http.get(Uri.parse(url));
+    final db = await _databaseService.database;
 
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body);
