@@ -7,7 +7,7 @@ import 'package:sqflite/sqflite.dart';
 
 class TvShowService {
 
-  // API: puxando as séries direto do banco 📡🎬💾
+  // Instância do serviço de banco de dados local
   late final DatabaseService _databaseService = DatabaseService();
 
   Future<List<TvShow>> getAll() async {
@@ -42,7 +42,7 @@ class TvShowService {
     );
   }
 
-  // Método para atualizar uma série no banco de dados
+  // Método para remover uma série do banco de dados
   Future<void> delete(int id) async {
     final db = await _databaseService.database;
     await db.delete('tv_shows', where: 'id = ?', whereArgs: [id]);
