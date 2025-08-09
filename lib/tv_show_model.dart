@@ -76,6 +76,14 @@ Future<void> load() async {
     _tvShows = await _tvShowService.getAll();
   } catch (e) {
     _setError('Deu ruim no carregamento das séries favoritas, tente depois por favor: ${e.toString()}');
-    return false;
+  } finally {
+    _setLoading(false);
   }
+}
+
+// Adiciona as séries favoritas no BD
+Future<void> addToFavorites(TvShow tvShow) async {
+  await _tvShowService.insert(tvShow);
+  _tvShows.add(tvShow);
+  notifyListeners();
 }
