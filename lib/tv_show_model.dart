@@ -95,7 +95,7 @@ Future<void> removeFromFavorites(TvShow tvshow) async {
   notifyListeners();
 }
 
-// Virar fav? vai checar se a série é coração
+// Detector de hall da fama, vai checar se a série é coração
 Future<bool> isFavortite(TvShow tvShow) async {
   try {
     return await _TvShowService.isFavorite(TvShow);
