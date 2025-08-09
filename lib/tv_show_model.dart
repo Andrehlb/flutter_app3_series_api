@@ -130,3 +130,10 @@ Future<TvShow> getTvShowById(int id) async {
   }
 }
 
+Future<List<TvShow>> searchTvShows(String query) async {
+  try {
+    return await _tvShowService.fetchTvShowsById(id);
+  } catch (e) {
+    throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
+  }
+}
