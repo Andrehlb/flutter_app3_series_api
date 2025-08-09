@@ -161,7 +161,7 @@ void addTvShow(TvShow tvShow, BuildContext context) {
 }
 
 // Remove série do modelo e notifica ouvintes 🔙🎬📢🎧
-void remove TvShow(TvShow tvShow, BuildContext context) {
+void removeTvShow(TvShow tvShow, BuildContext context) {
   final index = tvShows.indexwhere(
     (show) => show.name.toLowerCase() == tvShow.name.toLowerCase(),
   );
