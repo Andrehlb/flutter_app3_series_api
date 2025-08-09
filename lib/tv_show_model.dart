@@ -48,9 +48,8 @@ class TvShowModel extends ChangeNotifier {
     _tvShowService = TvShowService();
     initialize();
   }
-}
 
-// Estado das séries favoritas
+// Favoritonas em alta: aqui as séries do coração 🔥🎬💖
 List<TvShow> _tvShows = [];
 bool _isLoading = false;
 String? _errorMessage;
@@ -70,7 +69,7 @@ void _setLoading(bool loading) {
   notifyListeners();
 }
 
-// Puxar as séries favoritas que estão salvas no BD
+// Puxar as séries favoritas que estão salvas no BD 🎬💖💾
 Future<void> load() async {
   try {
     _setLoading(true);
@@ -83,14 +82,14 @@ Future<void> load() async {
   }
 }
 
-// Adiciona as séries favoritas no BD
+// Séries que valem o hype: favoritas salvas no BD 🎬💖💾
 Future<void> addToFavorites(TvShow tvShow) async {
   await _tvShowService.insert(tvShow);
   _tvShows.add(tvShow);
   notifyListeners();
 }
 
-// Remove as séries favoritas do BD
+// Remove as séries favoritas do BD 🎬💾
 Future<void> removeFromFavorites(TvShow tvshow) async {
   await _tvShowService.delete(tvShow.id);
   _tvShows.remove.Where((show) => show.id == tvShow.id);
