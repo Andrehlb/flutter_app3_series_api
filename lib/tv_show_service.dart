@@ -67,6 +67,20 @@ class TvShowService {
     }
   }
 
+  // API: busca séries por nome
+  Future<List<TvShow>> fetchTvShows(String query) async {
+    final response = await http.get(
+      Uri.parse('https://api.tvmaze.com/search/shows?q=$query'),
+    );
+
+    if (response.statusCode == 200) {
+      final List<TvShow> tvShows = [];
+      json.decode(response.body).forEach((item) {
+        tvShows.add(TvShow.fromJson(item['show']));
+      });
+      return tvShows;
+    } else {
+      throw Exception('Falha ao carregar séries!');
     }
   }
 }
