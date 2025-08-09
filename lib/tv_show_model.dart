@@ -102,9 +102,9 @@ class TvShowModel extends ChangeNotifier {
   }
 
 // Detector de hall da fama, vai checar se a série é coração 🔍🏆🎬💖
-  Future<bool> isFavorte(TvShow tvShow) async {
+  Future<bool> isFavorite(TvShow tvShow) async {
     try {
-      return await _TvShowService.isFavorite(TvShow);
+      return await _tvShowService.isFavorite(tvShow);
     } catch (e) {
       _setError('Deu ruim 😬 na checagem de favs 💔: ${e.toString()}, tente depois, por favor}');
       return false;
