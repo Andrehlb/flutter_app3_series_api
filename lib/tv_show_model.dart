@@ -169,7 +169,7 @@ void removeTvShow(TvShow tvShow, BuildContext context) {
   ScaffoldMessenger.of(context).clearSnackBars();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: Text('Série 🎬, ${tvShow.name}, removida com sucesso! ✨',
+      content: Text('Série 🎬, ${tvShow.name}, removida com sucesso! ✨'),
       duration: Duration(seconds: 3), //textAlign: TextAlign.center,
       action: SnackBarAction(
         label: 'Desfazer',
