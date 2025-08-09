@@ -127,6 +127,6 @@ Future<TvShow> getTvShowById(int id) async {
     return await _tvShowService.fetchTvShowById(id);
   } catch (e) {
     throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
-    rethrow;
   }
 }
+
