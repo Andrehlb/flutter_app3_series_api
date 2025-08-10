@@ -24,3 +24,20 @@ class _TvShowGridState extends State<TvShowGrid> {
         mainAxisSpacing: 16,
         childAspectRatio: 0.6,
       ),
+      itemCount: widget.tvShows.length,
+      itemBuilder: (context, index) {
+        final tvShow = widget.tvShows[index];
+        return Stack(
+          children: [
+            GestureDetector(
+              onTap: () => context.go('/tvshow/${tvShow.id}'),
+              child: Card(
+                elevation: 5,
+                margin: EdgeInsets.zero,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
