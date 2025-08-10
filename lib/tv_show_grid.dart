@@ -55,3 +55,13 @@ class _TvShowGridState extends State<TvShowGrid> {
                                     ).colorScheme.primary,
                                   ),
                                 ),
+                          errorBuilder: (context, child, stackTrace) =>
+                              Container(
+                                width: double.infinity,
+                                height: double.infinity,
+                                color: Theme.of(context).colorScheme.primary,
+                                child: Icon(Icons.error),
+                              ),
+                        ),
+                      ),
+                    ),
