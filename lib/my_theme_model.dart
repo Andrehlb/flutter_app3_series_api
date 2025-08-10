@@ -14,3 +14,13 @@ class MyThemeModel extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class MyTheme {
+  // Default color value
+  Color color;
+
+  // Uso de late para inicializar as propriedades posteriormente
+  late ColorScheme colorScheme;
+  late ColorScheme colorSchemeDark;
+  late ThemeData customTheme;
+  late ThemeData customThemeDark;
