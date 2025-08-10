@@ -14,14 +14,14 @@ void main() {
   // Garante que o Flutter esteja inicializado antes de usar o Provider e o GoRouter.
   // Isso é necessário para evitar erros de contexto antes da inicialização.
   WidgetsFlutterBinding.ensureInitialized();
-  
-void main() {
-  restartSystemUI(); // Reinicia o System UI ao iniciar o app
-  WidgetsFlutterBinding.ensureInitialized(); // Garante que o Flutter esteja inicializado antes de usar
+
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => TvShowModel(), // Cria uma instância do modelo TvShowModel
-      child: const MyApp(); // Inicia o aplicativo com MyApp como widget raiz
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => TvShowModel()),
+        ChangeNotifierProvider(create: (context) => MyThemeModel()),
+      ],
+      child: const MainApp(),
     ),
   );
 }
