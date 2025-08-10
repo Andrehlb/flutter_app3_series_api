@@ -12,3 +12,12 @@ class DatabaseService {
     _database = await _initDatabase();
     return _database!;
   }
+
+  Future<Database> _initDatabase() async {
+    final path = join(await getDatabasesPath(), _databaseName);
+    return await openDatabase(
+      path,
+      version: _databaseVersion,
+      onCreate: _onCreate,
+    );
+  }
