@@ -18,3 +18,17 @@ class _FavTvShowScreenState extends State<FavTvShowScreen> {
       context.read<TvShowModel>().initialize();
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<TvShowModel>(
+      builder: (context, viewModel, child) {
+        if (viewModel.isLoading) {
+          return Center(
+            child: SizedBox(
+              height: 96,
+              width: 96,
+              child: CircularProgressIndicator(strokeWidth: 12),
+            ),
+          );
+        }
