@@ -101,3 +101,44 @@ class _TvShowGridState extends State<TvShowGrid> {
                       size: 32,
                       color: isFavorite ? Colors.red : null,
                     ),
+                    onPressed: () {
+                      if (isFavorite) {
+                        tvShowModel.removeFromFavorites(tvShow);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).clearSnackBars();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('${tvShow.name} desfavoritada!'),
+                              duration: Duration(seconds: 3),
+                              action: SnackBarAction(
+                                label: 'DESFAZER',
+                                onPressed: () {
+                                  tvShowModel.addToFavorites(tvShow);
+                                },
+                              ),
+                            ),
+                          );
+                        }
+                      } else {
+                        tvShowModel.addToFavorites(tvShow);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).clearSnackBars();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('${tvShow.name} favoritada!'),
+                              duration: const Duration(seconds: 2),
+                            ),
+                          );
+                        }
+                      }
+                    },
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
