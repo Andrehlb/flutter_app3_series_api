@@ -35,3 +35,29 @@ class MyTheme {
       seedColor: color,
       brightness: Brightness.dark,
     );
+
+    customTheme = ThemeData(
+      colorScheme: colorScheme,
+      fontFamily: GoogleFonts.lato().fontFamily,
+      appBarTheme: AppBarTheme(
+        centerTitle: true,
+        toolbarHeight: 100,
+        backgroundColor: colorScheme.primary,
+        titleTextStyle: GoogleFonts.lobster(
+          fontSize: 36,
+          fontWeight: FontWeight.bold,
+          color: colorScheme.onPrimary,
+        ),
+        iconTheme: IconThemeData(
+          color: colorScheme.onPrimary,
+          size: 36,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        color: colorScheme.secondaryContainer,
+        shadowColor: colorScheme.onSurface,
+        elevation: 5,
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+    );
