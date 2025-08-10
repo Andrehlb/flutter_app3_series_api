@@ -1,9 +1,12 @@
-import 'dart:io';
-
+import 'package:app3_series_api/base_screen.dart';
+import 'package:app3_series_api/fav_tv_show_screen.dart';
+import 'package:app3_series_api/my_theme_model.dart';
+import 'package:app3_series_api/tv_show_model.dart';
+import 'package:app3_series_api/tv_show_screen.dart';
+import 'package:app3_series_api/tv_show_search.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'tv_show_model.dart';
-import 'tv_show_screen.dart';
 
 
 // Métodod para reiniciar o System UI
