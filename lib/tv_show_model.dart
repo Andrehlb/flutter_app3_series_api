@@ -140,7 +140,7 @@ class TvShowModel extends ChangeNotifier {
 
   Future<List<TvShow>> searchTvShows(String query) async {
     try {
-      return await _tvShowService.fetchTvShowsById(query);
+      return await _tvShowService.fetchTvShows(query);
     } catch (e) {
       throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
     }
