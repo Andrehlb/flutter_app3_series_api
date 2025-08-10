@@ -10,3 +10,20 @@ class TvShowSearchScreen extends StatefulWidget {
   @override
   State<TvShowSearchScreen> createState() => _TvShowSearchScreenState();
 }
+
+class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _controller = TextEditingController();
+
+  late Future<List<TvShow>>? searchResults;
+
+  bool onSubmit = false;
+  void submit() {
+    if (_formKey.currentState!.validate()) {
+      final tvShowModel = context.read<TvShowModel>();
+      setState(() {
+        onSubmit = true;
+        searchResults = tvShowModel.searchTvShows(_controller.text);
+      });
+    }
+  }
