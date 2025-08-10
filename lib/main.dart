@@ -10,13 +10,11 @@ import 'package:provider/provider.dart';
 
 
 // Métodod para reiniciar o System UI
-void restartSystemUI() {
-  try {
-    Process.run('adb', ['restart'], runInShell: true);
-  } catch (e) {
-    print('Erro ao reiniciar o System UI: $e');
-  }
-}
+void main() {
+  // Garante que o Flutter esteja inicializado antes de usar o Provider e o GoRouter.
+  // Isso é necessário para evitar erros de contexto antes da inicialização.
+  WidgetsFlutterBinding.ensureInitialized();
+  
 void main() {
   restartSystemUI(); // Reinicia o System UI ao iniciar o app
   WidgetsFlutterBinding.ensureInitialized(); // Garante que o Flutter esteja inicializado antes de usar
