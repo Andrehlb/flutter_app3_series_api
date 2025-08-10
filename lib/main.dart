@@ -26,8 +26,31 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+final GoRouter _router = GoRouter(
+  initialLocation: '/',
+  routes: [
+    ShellRoute(
+      builder: (context, state, child) => BaseScreen(child: child),
+      routes: [
+        GoRoute(path: '/', builder: (context, state) => FavTvShowScreen()),
+        GoRoute(
+          path: '/tvshow/:id',
+          builder: (context, state) {
+            final id = int.parse(state.pathParameters['id']!);
+            return TvShowScreen(id: id);
+          },
+        ),
+        GoRoute(
+          path: '/search',
+          builder: (context, state) => TvShowSearchScreen(),
+        ),
+      ],
+    ),
+  ],
+);
+
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
 
   // This widget is the root of your application.
   @override
