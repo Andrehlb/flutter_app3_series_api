@@ -61,3 +61,31 @@ class MyTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
     );
+
+    customThemeDark = ThemeData(
+      colorScheme: colorSchemeDark,
+      fontFamily: GoogleFonts.lato().fontFamily,
+      appBarTheme: AppBarTheme(
+        centerTitle: true,
+        toolbarHeight: 100,
+        backgroundColor: colorSchemeDark.onPrimary,
+        titleTextStyle: GoogleFonts.lobster(
+          fontSize: 36,
+          fontWeight: FontWeight.bold,
+          color: colorSchemeDark.primary,
+        ),
+        iconTheme: IconThemeData(
+          color: colorScheme.onPrimary,
+          size: 36,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        color: colorSchemeDark.secondaryContainer,
+        shadowColor: colorSchemeDark.onSurface,
+        elevation: 5,
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+    );
+  }
+}
