@@ -41,3 +41,17 @@ class _TvShowGridState extends State<TvShowGrid> {
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(20),
                         ),
+                        child: Image.network(
+                          tvShow.imageUrl,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) =>
+                              loadingProgress == null
+                              ? child
+                              : Center(
+                                  child: CircularProgressIndicator(
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.primary,
+                                  ),
+                                ),
