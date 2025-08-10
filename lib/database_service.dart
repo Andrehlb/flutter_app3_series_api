@@ -6,3 +6,9 @@ class DatabaseService {
   static const _databaseVersion = 1;
 
   static Database? _database;
+
+  Future<Database> get database async {
+    if (_database != null) return _database!;
+    _database = await _initDatabase();
+    return _database!;
+  }
