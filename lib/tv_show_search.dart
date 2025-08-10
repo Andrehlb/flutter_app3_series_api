@@ -116,3 +116,21 @@ class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
                                   'Nenhuma série encontrada!',
                                   style: TextStyle(fontSize: 24),
                                 ),
+                                ElevatedButton(
+                                  onPressed: () => context.go('/'),
+                                  child: Text('VOLTAR'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      } else {
+                        return Column(children: [
+                          Text(
+                            '${snapshot.data!.length} séries encontradas!',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Theme.of(context).colorScheme.primary,
+                              fontWeight: FontWeight.bold
+                              )
+                          ),
