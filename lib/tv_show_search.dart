@@ -72,3 +72,47 @@ class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
               },
             ),
           ),
+          SizedBox(height: 16),
+          onSubmit
+              ? Expanded(
+                  child: FutureBuilder<List<TvShow>>(
+                    future: searchResults,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: SizedBox(
+                            height: 96,
+                            width: 96,
+                            child: CircularProgressIndicator(strokeWidth: 12),
+                          ),
+                        );
+                      } else if (snapshot.hasError) {
+                        return Center(
+                          child: Container(
+                            padding: EdgeInsets.all(32),
+                            child: Column(
+                              spacing: 32,
+                              children: [
+                                Text(
+                                  'Erro: ${snapshot.error}',
+                                  style: TextStyle(fontSize: 24),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () => context.go('/'),
+                                  child: Text('VOLTAR'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      } else if(onSubmit && (!snapshot.hasData || snapshot.data!.isEmpty)) {
+                        return Center(
+                          child: Container(
+                            padding: EdgeInsets.all(32),
+                            child: Column(
+                              spacing: 32,
+                              children: [
+                                Text(
+                                  'Nenhuma série encontrada!',
+                                  style: TextStyle(fontSize: 24),
+                                ),
