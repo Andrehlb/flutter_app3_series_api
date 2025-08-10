@@ -32,3 +32,26 @@ class _FavTvShowScreenState extends State<FavTvShowScreen> {
             ),
           );
         }
+
+        if (viewModel.errorMessage != null) {
+          return Center(
+            child: Container(
+              padding: EdgeInsets.all(32),
+              child: Column(
+                spacing: 32,
+                children: [
+                  Text(
+                    'Erro: ${viewModel.errorMessage}',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      viewModel.load();
+                    },
+                    child: Text('TENTAR NOVAMENTE'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
