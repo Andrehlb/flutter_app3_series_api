@@ -55,3 +55,47 @@ class _FavTvShowScreenState extends State<FavTvShowScreen> {
             ),
           );
         }
+
+        return Container(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              if (viewModel.hasFavorites) ...[
+                const SizedBox(height: 8),
+                Text(
+                  '${viewModel.tvShows.length} série(s) favorita(s)',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+              ],
+              const SizedBox(height: 16),
+              Expanded(
+                child: viewModel.hasFavorites
+                    ? TvShowGrid(tvShows: viewModel.tvShows)
+                    : Center(
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 64),
+                            Icon(
+                              Icons.favorite,
+                              size: 96,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            const SizedBox(height: 32),
+                            Text(
+                              'Adicione suas séries favoritas!',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
