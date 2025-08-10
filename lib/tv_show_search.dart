@@ -27,3 +27,14 @@ class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
       });
     }
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        children: [
+          Text(
+            'Buscar Séries',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
