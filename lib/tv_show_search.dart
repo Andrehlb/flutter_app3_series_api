@@ -134,3 +134,16 @@ class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
                               fontWeight: FontWeight.bold
                               )
                           ),
+                          SizedBox(height: 16,),
+                          Expanded(child: TvShowGrid(tvShows: snapshot.data!),)
+                        ],);
+                      }
+                    },
+                  ),
+                )
+              : Container(),
+        ],
+      ),
+    );
+  }
+}
