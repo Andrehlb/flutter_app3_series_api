@@ -64,3 +64,11 @@ class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
                   ],
                 ),
               ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Título é obrigatório!';
+                }
+                return null;
+              },
+            ),
+          ),
