@@ -11,3 +11,8 @@ class TvShowGrid extends StatefulWidget {
   @override
   State<TvShowGrid> createState() => _TvShowGridState();
 }
+
+class _TvShowGridState extends State<TvShowGrid> {
+  @override
+  Widget build(BuildContext context) {
+    final tvShowModel = context.watch<TvShowModel>();
