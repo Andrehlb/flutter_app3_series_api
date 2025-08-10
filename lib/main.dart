@@ -54,15 +54,20 @@ class MainApp extends StatefulWidget {
 
   // This widget is the root of your application.
   @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Eu 💛 Séries',
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.deepPurple,
-        ),
-        home: const TvShowScreen(),
-    );  
+      theme: context.read<MyThemeModel>().customTheme,
+      darkTheme: context.read<MyThemeModel>().customThemeDark,
+      themeMode: context.watch<MyThemeModel>().isDark
+          ? ThemeMode.dark
+          : ThemeMode.light,
+      routerConfig: _router,
+    );
   }
 }
