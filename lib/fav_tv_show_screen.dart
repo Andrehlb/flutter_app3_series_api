@@ -1,5 +1,7 @@
+import 'package:app3_series_api/tv_show_grid.dart';
+import 'package:app3_series_api/tv_show_model.dart';
 import 'package:flutter/material.dart';
-import 'tv_show_model.dart';
+import 'package:provider/provider.dart';
 
 class FavTvShowScreen extends StatefulWidget {
   const FavTvShowScreen({super.key});
@@ -10,24 +12,9 @@ class FavTvShowScreen extends StatefulWidget {
 
 class _FavTvShowScreenState extends State<FavTvShowScreen> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Séries Favoritas')
-      ),
-      body: const Center(
-        child: Column (
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.favorite, size: 96, color: Colors.deepPurple),
-            SizedBox(height: 32),
-            Text(
-              'Adicione suas séries favoritas!',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-            ),
-          ],
-        ),
-      ),
-    );
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<TvShowModel>().initialize();
+    });
   }
-}
