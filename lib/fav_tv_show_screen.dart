@@ -48,7 +48,7 @@ class _FavTvShowScreenState extends State<FavTvShowScreen> {
                     onPressed: () {
                       viewModel.load();
                     },
-                    child: Text('TENTAR NOVAMENTE'),
+                    child: Text('TENTE de NOVO'),
                   ),
                 ],
               ),
