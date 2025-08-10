@@ -90,3 +90,14 @@ class _TvShowGridState extends State<TvShowGrid> {
                 ),
               ),
             ),
+            FutureBuilder<bool>(
+              future: tvShowModel.isFavorite(tvShow),
+              builder: (context, snapshot) {
+                final isFavorite = snapshot.data ?? false;
+                return Positioned(
+                  child: IconButton(
+                    icon: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      size: 32,
+                      color: isFavorite ? Colors.red : null,
+                    ),
