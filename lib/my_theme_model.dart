@@ -24,3 +24,9 @@ class MyTheme {
   late ColorScheme colorSchemeDark;
   late ThemeData customTheme;
   late ThemeData customThemeDark;
+
+  MyTheme({required this.color}) {
+    colorScheme = ColorScheme.fromSeed(
+      seedColor: color,
+      brightness: Brightness.light,
+    );
