@@ -30,3 +30,8 @@ class MyTheme {
       seedColor: color,
       brightness: Brightness.light,
     );
+
+    colorSchemeDark = ColorScheme.fromSeed(
+      seedColor: color,
+      brightness: Brightness.dark,
+    );
