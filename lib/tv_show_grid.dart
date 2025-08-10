@@ -65,3 +65,28 @@ class _TvShowGridState extends State<TvShowGrid> {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Column(
+                        children: [
+                          Text(tvShow.name),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.star, color: Colors.amber, size: 18),
+                              Text(
+                                tvShow.rating.toString(),
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
