@@ -38,3 +38,29 @@ class _TvShowSearchScreenState extends State<TvShowSearchScreen> {
             'Buscar Séries',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
+          SizedBox(height: 32),
+          Form(
+            key: _formKey,
+            child: TextFormField(
+              controller: _controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                suffixIcon: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(icon: Icon(Icons.search), onPressed: submit),
+                    onSubmit
+                        ? IconButton(
+                            icon: Icon(Icons.clear),
+                            onPressed: () {
+                              setState(() {
+                                _controller.clear();
+                                onSubmit = false;
+                              });
+                            },
+                          )
+                        : Container(),
+                  ],
+                ),
+              ),
