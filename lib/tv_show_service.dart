@@ -7,7 +7,7 @@ import 'package:sqflite/sqflite.dart';
 
 class TvShowService {
 
-  // Instância do serviço de banco de dados local
+  // Instância do serviço de banco de dados
   late final DatabaseService _databaseService = DatabaseService();
 
   Future<List<TvShow>> getAll() async {
@@ -16,7 +16,6 @@ class TvShowService {
     return _convertToList(maps);
   }
 
-  // Converte a lista de mapas para uma lista de objetos TvShow
   List<TvShow> _convertToList(List<Map<String, dynamic>> maps) {
     return maps
         .map(
@@ -31,8 +30,7 @@ class TvShowService {
         )
         .toList();
   }
-  
-  // Método para inserir uma série no banco de dados
+
   Future<void> insert(TvShow tvShow) async {
     final db = await _databaseService.database;
     await db.insert(
@@ -42,19 +40,17 @@ class TvShowService {
     );
   }
 
-  // Método para remover uma série do banco de dados
   Future<void> delete(int id) async {
     final db = await _databaseService.database;
     await db.delete('tv_shows', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Método para buscar uma série pelo ID
   Future<bool> isFavorite(TvShow tvShow) async {
     final tvShows = await getAll();
     return tvShows.any((show) => show.id == tvShow.id);
   }
 
-  // API: busca uma série pelo ID
+  // API
   Future<TvShow> fetchTvShowById(int id) async {
     final response = await http.get(
       Uri.parse('https://api.tvmaze.com/shows/$id'),
@@ -67,7 +63,6 @@ class TvShowService {
     }
   }
 
-  // API: busca séries por nome
   Future<List<TvShow>> fetchTvShows(String query) async {
     final response = await http.get(
       Uri.parse('https://api.tvmaze.com/search/shows?q=$query'),
