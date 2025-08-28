@@ -25,17 +25,17 @@ class TvShow {
       name: json['name'],
       webChannel: json['webChannel']?['name'] ?? 'N/A',
       rating: json['rating']?['average']?.toDouble() ?? 0.0,
-      summary: json['summary'] ?? 'Resumo não disponível',
+      summary: json['summary'] ?? 'Sem resumo disponível.',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'imageUrl': imageUrl, //'image': {'medium': imageUrl},
+      'imageUrl': imageUrl,
       'name': name,
-      'webChannel': webChannel, //'webChannel': {'name': webChannel},
-      'rating': rating, //'rating': {'average': ratting},
+      'webChannel': webChannel,
+      'rating': rating,
       'summary': summary,
     };
   }
@@ -49,7 +49,7 @@ class TvShowModel extends ChangeNotifier {
     initialize();
   }
 
-// Favoritonas em alta: aqui as séries do coração 🔥🎬💖
+  // Estado das séries favoritas
   List<TvShow> _tvShows = [];
   bool _isLoading = false;
   String? _errorMessage;
@@ -59,7 +59,7 @@ class TvShowModel extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   bool get hasFavorites => _tvShows.isNotEmpty;
 
-// BD
+  // BD
   Future<void> initialize() async {
     await load();
   }
@@ -74,44 +74,44 @@ class TvShowModel extends ChangeNotifier {
     notifyListeners();
   }
 
-// Puxar as séries favoritas que estão salvas no BD 🎬💖💾
+  // Carrega as séries favoritas do banco de dados
   Future<void> load() async {
     try {
       _setLoading(true);
       _setError(null);
       _tvShows = await _tvShowService.getAll();
     } catch (e) {
-      _setError('Deu ruim 😬 no carregamento da série coração 💔: ${e.toString()}, tente depois, por favor');
+      _setError('Falha ao carregar séries favoritas: ${e.toString()}');
     } finally {
       _setLoading(false);
     }
   }
 
-// Séries que valem o hype: favoritas salvas no BD 🎬💖💾
+  // Adiciona séries favoritas
   Future<void> addToFavorites(TvShow tvShow) async {
     await _tvShowService.insert(tvShow);
     _tvShows.add(tvShow);
     notifyListeners();
   }
 
-// Remove do BD as séries desfavoritadas 🔙💾🎬💔
+  // Remove séries favoritas
   Future<void> removeFromFavorites(TvShow tvShow) async {
     await _tvShowService.delete(tvShow.id);
     _tvShows.removeWhere((show) => show.id == tvShow.id);
     notifyListeners();
   }
 
-// Detector de hall da fama, vai checar se a série é coração 🔍🏆🎬💖
+  // Verifica se uma série é favorita
   Future<bool> isFavorite(TvShow tvShow) async {
     try {
       return await _tvShowService.isFavorite(tvShow);
     } catch (e) {
-      _setError('Deu ruim 😬 na checagem de favs 💔: ${e.toString()}, tente depois, por favor}');
+      _setError('Falha em verificar se é favorita: ${e.toString()}');
       return false;
     }
   }
 
-// Faz os nomes das séries virarem trend, do A ao Z 📈🔥🎬🅰️🧿
+  // Ordena as séries favoritas por nome
   void sortByName(bool ascending) {
     _tvShows.sort(
       (a, b) => ascending ? a.name.compareTo(b.name) : b.name.compareTo(a.name),
@@ -119,7 +119,7 @@ class TvShowModel extends ChangeNotifier {
     notifyListeners();
   }
 
-// As séries coração são classificadas por notas 🎬💖📊
+  // Ordena as séries favoritas por nota
   void sortByRating(bool ascending) {
     _tvShows.sort(
       (a, b) => ascending
@@ -129,12 +129,12 @@ class TvShowModel extends ChangeNotifier {
     notifyListeners();
   }
 
-// Consumo do API para buscar séries por ID 📡🔍🎬🆔
+  // API
   Future<TvShow> getTvShowById(int id) async {
     try {
       return await _tvShowService.fetchTvShowById(id);
     } catch (e) {
-      throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
+      throw Exception('Falha em carregar série: ${e.toString()}');
     }
   }
 
@@ -142,25 +142,24 @@ class TvShowModel extends ChangeNotifier {
     try {
       return await _tvShowService.fetchTvShows(query);
     } catch (e) {
-      throw Exception('Deu ruim ao buscar série 😬: ${e.toString()}, tente depois.');
+      throw Exception('Falha em buscar séries: ${e.toString()}');
     }
   }
 
   void addTvShow(TvShow tvShow, BuildContext context) {
-    _tvShows.add(tvShow);
+    tvShows.add(tvShow);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          'Série 🎬, ${tvShow.name}, adicionada com sucesso! ✨',
+          'Série adicionada com sucesso!',
           textAlign: TextAlign.center,
         ),
         duration: Duration(seconds: 2),
       ),
-    ); // ScaffoldMessenger para mostrar mensagem de sucesso
+    );
     notifyListeners();
   }
 
-// linha+1 - Remove série do modelo e notifica ouvintes 🔙🎬📢🎧
   void removeTvShow(TvShow tvShow, BuildContext context) {
     final index = tvShows.indexWhere(
       (show) => show.name.toLowerCase() == tvShow.name.toLowerCase(),
@@ -169,27 +168,26 @@ class TvShowModel extends ChangeNotifier {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Série 🎬, ${tvShow.name}, removida com sucesso! ✨'),
-        duration: Duration(seconds: 3), //textAlign: TextAlign.center,
+        content: Text('${tvShow.name} excluída!'),
+        duration: Duration(seconds: 3),
         action: SnackBarAction(
-          label: 'Desfazer',
+          label: 'DESFAZER',
           onPressed: () {
             tvShows.insert(index, tvShow);
             notifyListeners();
-          }, // onPressed para desfazer a remoção
-        ), // Action para desfazer a remoção
-      ), // Snackbar para mostrar mensagem de sucesso
+          },
+        ),
+      ),
     );
     notifyListeners();
   }
 
-  // linha+2 - Edita série do modelo e notifica ouvintes 📝🎬📢🎧
   void editTvShow(TvShow oldTvShow, TvShow newTvShow, BuildContext context) {
     final index = tvShows.indexOf(oldTvShow);
     tvShows[index] = newTvShow;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Série 🎬, ${index + 1}, atualizada 🔄 com sucesso! ✨'),
+        content: Text('Série ${index + 1} atualizada!'),
         duration: Duration(seconds: 2),
       ),
     );
