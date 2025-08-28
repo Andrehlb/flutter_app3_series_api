@@ -5,42 +5,36 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-// Tela base que contém o AppBar e o Drawer
-class BaseScreen extends StatelessWidget {
+class BaseScreen extends StatefulWidget {
   final Widget child;
 
   const BaseScreen({super.key, required this.child});
-  
+
   @override
   State<BaseScreen> createState() => _BaseScreenState();
 }
 
-// Estado da BaseScreen
-class _BaseScreenState extends State<BaseScreen> { 
+class _BaseScreenState extends State<BaseScreen> {
 
-  bool _isAscending = true; // Variável para controlar a ordenação
+  bool _isAscending = true;
 
   @override
   Widget build(BuildContext context) {
 
-    override
-  widget build(BuildContext context) {
-
     // Obtém o caminho atual da rota
     final currentPath = GoRouterState.of(context).uri.path;
     final viewModel = context.watch<TvShowModel>();
-
+    
     return Scaffold(
-      appBar: AppBar(
-        title: Row (
-          mainAxisAlignment: MainAxisAlignment.end, // Alinha o título à direita
-          children: [Text('Eu 💛 Séries 🎬')],
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.end, // Alinha à direita
+            children: [Text('Eu Amo Séries 🎬')],
+          ),
         ),
-      ),
-      
-      drawer: CustomDrawer(), // <- aqui está um segredo.
-      body: widget.child,
-      floatingActionButton: currentPath == '/'
+        drawer: CustomDrawer(),
+        body: widget.child,
+        floatingActionButton: currentPath == '/'
           ? SpeedDial(
               elevation: 5,
               icon: Icons.sort,
@@ -84,6 +78,5 @@ class _BaseScreenState extends State<BaseScreen> {
             )
           : null,
       );
-    }
   }
 }
