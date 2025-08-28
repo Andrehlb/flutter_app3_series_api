@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -20,7 +21,7 @@ class CustomDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Eu Amo 💛 Séries 🎬',
+                    'Eu Amo Séries 🎬',
                     style: GoogleFonts.lobster(
                       color: Theme.of(context).colorScheme.onPrimary,
                       fontSize: 32,
@@ -43,7 +44,7 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
-           ListTile(
+          ListTile(
             leading: Icon(Icons.favorite),
             title: Text('Favoritas'),
             onTap: () {
